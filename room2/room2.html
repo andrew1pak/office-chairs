@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rooms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        img {
+            width: 100vw; /* Full width of the viewport */
+            height: 100vh; /* Full height of the viewport */
+            object-fit: cover; /* Ensures the image covers the screen */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="roomsimages/1.jpg" alt="Image 1">
+
+    <script>
+        const totalImages = 300; // Total number of images
+        let currentImage = 1; // Start with the first image LMAO
+
+        const imageElement = document.getElementById('image');
+
+        imageElement.addEventListener('click', () => {
+            currentImage++;
+            if (currentImage > totalImages) {
+                currentImage = 1; // Loop back to the first image
+            }
+            const newSrc = `roomsimages/${currentImage}.jpg`;
+            imageElement.src = newSrc;
+            imageElement.alt = `Image ${currentImage}`;
+        });
+    </script>
+</body>
+</html>
